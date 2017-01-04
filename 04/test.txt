@@ -1,0 +1,8 @@
+
+if iszero(succ(pred(0)))
+then
+    true
+else
+    false
+
+true succ(0) succ(pred(pred(succ(0))))
