@@ -58,5 +58,3 @@
 		      t2]
 		     [`(if false then ,t2 else ,t3)
 		      t3])))
-
-
