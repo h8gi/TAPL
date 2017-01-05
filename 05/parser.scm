@@ -69,11 +69,11 @@
    ;; --- token definitions
    (NUMBER LAMBDA DOT LPAREN RPAREN VAR)
    ;; --- rules
-   (exp (exp term) : (list 'apply $1 $2)
-	(term) : $1)
+   (expr (expr term) : (list 'APPLY $1 $2)
+	 (term)	     : $1)
    (term (VAR)	  : $1
 	 (NUMBER) : $1
-	 (LAMBDA VAR DOT exp) : (list 'lambda (list $2) $4)
-	 (LPAREN exp RPAREN) : $2)))
+	 (LAMBDA VAR DOT expr) : (list 'LAMBDA (list $2) $4)
+	 (LPAREN expr RPAREN)  : $2)))
 
 (include "lambda.yy.scm")
