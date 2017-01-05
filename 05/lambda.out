@@ -1,0 +1,119 @@
+State table
+-----------
+
+state 0
+
+   *start* --> . exp *eoi*    (rule 1)
+
+   *default* : Error
+   NUMBER : shift and goto state 4
+   LAMBDA : shift and goto state 3
+   LPAREN : shift and goto state 2
+   VAR : shift and goto state 1
+
+state 1
+
+   term --> VAR .    (rule 4)
+
+   *default* : reduce using rule 4
+
+state 2
+
+   term --> LPAREN . exp RPAREN    (rule 7)
+
+   *default* : Error
+   NUMBER : shift and goto state 4
+   LAMBDA : shift and goto state 3
+   LPAREN : shift and goto state 2
+   VAR : shift and goto state 1
+
+state 3
+
+   term --> LAMBDA . VAR DOT exp    (rule 6)
+
+   *default* : Error
+   VAR : shift and goto state 8
+
+state 4
+
+   term --> NUMBER .    (rule 5)
+
+   *default* : reduce using rule 5
+
+state 5
+
+   exp --> term .    (rule 3)
+
+   *default* : reduce using rule 3
+
+state 6
+
+   *start* --> exp . *eoi*    (rule 1)
+   exp --> exp . term    (rule 2)
+
+   *default* : Error
+   *eoi* : shift and goto state 9
+   NUMBER : shift and goto state 4
+   LAMBDA : shift and goto state 3
+   LPAREN : shift and goto state 2
+   VAR : shift and goto state 1
+
+state 7
+
+   exp --> exp . term    (rule 2)
+   term --> LPAREN exp . RPAREN    (rule 7)
+
+   *default* : Error
+   NUMBER : shift and goto state 4
+   LAMBDA : shift and goto state 3
+   LPAREN : shift and goto state 2
+   RPAREN : shift and goto state 11
+   VAR : shift and goto state 1
+
+state 8
+
+   term --> LAMBDA VAR . DOT exp    (rule 6)
+
+   *default* : Error
+   DOT : shift and goto state 12
+
+state 9
+
+   *start* --> exp *eoi* .    (rule 1)
+
+   *default* : reduce using rule 1
+   *eoi* : Accept input
+
+state 10
+
+   exp --> exp term .    (rule 2)
+
+   *default* : reduce using rule 2
+
+state 11
+
+   term --> LPAREN exp RPAREN .    (rule 7)
+
+   *default* : reduce using rule 7
+
+state 12
+
+   term --> LAMBDA VAR DOT . exp    (rule 6)
+
+   *default* : Error
+   NUMBER : shift and goto state 4
+   LAMBDA : shift and goto state 3
+   LPAREN : shift and goto state 2
+   VAR : shift and goto state 1
+
+state 13
+
+   exp --> exp . term    (rule 2)
+   term --> LAMBDA VAR DOT exp .    (rule 6)
+
+   *default* : reduce using rule 6
+   NUMBER : shift and goto state 4
+   LAMBDA : shift and goto state 3
+   LPAREN : shift and goto state 2
+   VAR : shift and goto state 1
+
