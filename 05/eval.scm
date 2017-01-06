@@ -149,6 +149,8 @@
       (let ([expr (parse-string (read-line))])
 	(match expr
 	  [('VAR 'quit) (pp "Good bye!")]
-	  [else (pp (reshape-lambda (eval-lambda expr)))
-		(inner)]))))
+	  [else
+	   (display "INPUT : ") (pp (reshape-lambda expr))
+	   (display "OUTPUT: ") (pp (reshape-lambda (eval-lambda expr)))
+	   (inner)]))))
   (inner))
