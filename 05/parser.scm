@@ -4,9 +4,9 @@
 (define lambda-parser
   (lalr-parser
    ;; --- Options
-   (output: lambda-parser "lambda.yy.scm")
+   (output: lambda-parser "lambda-parser.yy.scm")
    ;; output the LALR table to lambda.out
-   (out-table: "lambda.out")
+   (out-table: "lambda-parser.out")
    ;; --- token definitions
    (NUMBER LAMBDA DOT LPAREN RPAREN VAR)
    ;; --- rules

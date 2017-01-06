@@ -4,7 +4,7 @@
 ;;; implement de bruijn index
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use matchable)
-(include "lambda.yy.scm")
+(include "lambda-parser.yy.scm")
 (include "lexer.scm")
 
 (define (parse-string str)
