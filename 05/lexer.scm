@@ -17,7 +17,8 @@
 
 (define (read-number #!optional (port (current-input-port)))
   (let ([int (read-while char-numeric? port)])
-    (cond [(char=? (peek-char port) #\.)
+    (cond [(and (not (eof-object? (peek-char port)))
+                (char=? (peek-char port) #\.))
 	   ;; consume dot
 	   (read-char port)
 	   (string-append int "." (read-number port))]
@@ -56,7 +57,7 @@
 	  [#\( (read-char)
 	   (make-lexical-token 'LPAREN location #f)]
 	  [#\) (read-char)
-	   (make-lexical-token 'RPAREN location #f)]
+	   (make-lexical-token 'RPAREN location #f)]         
 	  [(? char-alphabetic?)
 	   (make-lexical-token 'VAR location (string->symbol (read-var)))]
 	  [else
