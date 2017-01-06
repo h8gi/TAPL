@@ -60,5 +60,9 @@
 	   (make-lexical-token 'RPAREN location #f)]         
 	  [(? char-alphabetic?)
 	   (make-lexical-token 'VAR location (string->symbol (read-var)))]
+	  [(or #\+ #\- #\* #\/)
+	   (read-char)
+	   (make-lexical-token (string->symbol (string c))
+			       location #f)]
 	  [else
 	   (error "Lexer Error")])))))
