@@ -33,7 +33,7 @@
 	       (<c> #\)))
        (match-lambda
 	[(name leftp val rightp)
-	 (list name val)])))
+[]	 (list name val)])))
 
 (define succ
   (<app> "succ"))

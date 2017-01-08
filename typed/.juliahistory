@@ -1,0 +1,312 @@
+2
+3
+ans
+typeof
+STDIN
+position(STDIN)
+redirect_stdout
+redirect_stdout()
+2
+3
+(rd, wr) = redirect_stdout()
+read(rd)
+aa
+fd
+readline
+readline()
+aaa
+?readline
+readchar
+read
+?read
+read(STDIN, Char)
+a
+read(STDIN, Int)
+a
+2
+c
+read(STDIN, Char)
+b
+:a
+:a::Symbol
+Info
+Token
+Token(:a, "b")
+Token(:a, "b", Info("a"))
+quit()
+Token(:a, "b", Info("a"))
+Token(:a, "b")
+Token(:a, "b", Info("a"))
+Token(:a, "b")
+Token(:a, "b")
+Token(:a, "b", Info("aa"))
+peekchar
+mark
+?mark
+eof(STDIN)
+a
+?readuntil
+Base.⊈
+2
+Base.⊈
+2
+3
+Base.<<
+<<
+Base.in
+Base.IOStream.peekchar
+Base.IOpeekchar
+Base.IO.peekchar
+peekchar
+peekchar(STDIN)
+a
+readwhile
+?eof
+"ae" . 'b'
+"ae" + 'b'
+"ae" + 'b'
+"ae" + "a"
+string
+string("aa", 'b')
+isnum
+isnumber
+readwhile(isnumber, stream)
+readwhile(isnumber, STDIN)
+12
+readwhile(isnumber, STDIN)
+12abs
+readwhile(isnumber, STDIN)
+skipchars
+?skipchars
+skipchars
+?skipchars
+skipchars(open("test.txt"), isspace)
+skipchars(open("test.txt"), isnumber)
+skipchars(open("test.txt"), isspace)
+readtoken
+readwhile(STDIN, isspace)
+aaa
+readwhile(STDIN, isspace)
+12
+in
+'a' in "abc"
+r"a"
+r"[a-zA-Z0-9]"
+"  a"
+"  a b"
+"  a b \"\""
+"  a b \""
+'\'
+'\\'
+'\\'
+'\\'
+'n'
+'"'
+readdquote(STDIN)
+aaa"
+2
+readdquote(STDIN)
+aaa
+bbb
+"
+readdquote(STDIN)
+aaa\""
+'a' in r"a"
+?match
+match(r"a", "a")
+match(r"a", 'a')
+isalpha
+?isalpha
+isalpha("fa")
+isalpha("fa2")
+isalpha("fa.")
+isalpha('.')
+isspecialchar
+isspecialchar('$')
+isheadchar('b')
+isheadchar('/')
+isheadchar('\')
+isheadchar('\\')
+isheadchar('\$')
+isheadchar('$')
+readtoken(STDIN)
+aaa
+readtoken(STDIN)
+aaaab
+readtoken(STDIN)
+aa.21
+readtoken(STDIN)
+.12
+readtoken(STDIN)
+.3004
+readtoken(STDIN)
+.
+unmark(STDIN)
+unmark(STDIN)
+unmark(STDIN)
+unmark(STDIN)
+readtoken(STDIN)
+1.23
+readtoken(STDIN)
+12.3
+readtoken(STDIN)
+12.3
+readtoken(STDIN)
+12.3
+readtoken(STDIN)
+12.3
+readtoken(STDIN)
+12.
+error
+readtoken(STDIN)
+readtoken(STDIN)
+readtoken(STDIN)
+'\'''
+'\''
+readtoken(STDIN)
+12.3
+readtoken(STDIN)
+12.3
+readtoken(STDIN)
+12.3
+readtoken(STDIN)
+.23
+readtoken(STDIN)
+212.
+readtoken(STDIN)
+2
+readtoken(STDIN)
+a,
+readfile
+acc = []
+push!(acc, 2)
+push!(acc, 2)
+readfile("test.txt")
+bool(2)
+Bool(12)
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+'\n'
+string("a", '\n')
+print(string("a", '\n'))
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+{1,2}
+{1 }
+{
+2 3 4}
+{a=>2}
+{a=>2}
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+readfile("test.txt")
+"foo" in ["foo"]
+readfile("test.txt")
+readlines
+?readlines
+readlines(STDIN)
+aaab
+bbb
+readlines("test.txt")
+readlines("test.txt")
+eachline
+?eachline
+eachline("test.txt")
+a = eachline("test.txt")
+a.stream
+collect(a)
+a
+for x in s
+for x in a ; print(x) end
+a
+functionloc
+?functionloc
+functionloc(eachline, IO)
+functionloc(eachline, (IO,))
+eachtoken
+1
+eachtoken("test.txt")
+for x in eachtoken("test.txt")
+print(x)
+end
+for x in eachtoken("test.txt")
+print(x)
+end
+quit()
+for x in eachtoken("test.txt")
+print(x)
+end
+for x in eachtoken("test.txt")
+print(x)
+end
+for x in eachtoken("test.txt")
+print(x)
+end
+readtokens
+readlines
+?readlines
+readtokens
+readtokens("test.txt")
+SizeUnknown()
+Base.SizeUnknown()
+readtokens("test.txt")
+quit 8
+quit()
+readtokens("test.txt")
+readuntil
+?readuntil
+LispNil
+LispNil()
+typeof(LispNil())
+typeof(LispNil)
+LispLexer
+LispLexer.Token
+LispLexer.eachtoken
+LispLexer.eachtoken("test.txt")
+collect(LispLexer.eachtoken("test.txt"))
+LOAD_PATH
+quit()
+eachtoken
+eachtoken
+LispLexer.eachtoken
+LispLexer.eachtoken
+LispParser.hoge()
+LispParser.hoge()
+LispParser.hoge()[1]
+LispParser.hoge()[1].kind
+LispParser.hoge()[1].value
+LispParser.hoge()[1].info
+parse
+?parse
+Pair
+Nil
+Nil
+Obj
+using LispParser
+Obj
+LispParser
+LispParser.Obj
+LispParser.Cons(LispParser.Obj(:a, "b"), LispParser.Obj(:a, "b"))
+pair = LispParser.Cons(LispParser.Obj(:a, "b"), LispParser.Obj(:a, "b"))
+LispParser.Cons(pair, pair)
+cons
+cons(1,2)
+cons
+cons(1,2)
+Obj
+Cons
+quit()
