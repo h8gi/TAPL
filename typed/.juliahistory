@@ -1,160 +1,3 @@
-2
-3
-ans
-typeof
-STDIN
-position(STDIN)
-redirect_stdout
-redirect_stdout()
-2
-3
-(rd, wr) = redirect_stdout()
-read(rd)
-aa
-fd
-readline
-readline()
-aaa
-?readline
-readchar
-read
-?read
-read(STDIN, Char)
-a
-read(STDIN, Int)
-a
-2
-c
-read(STDIN, Char)
-b
-:a
-:a::Symbol
-Info
-Token
-Token(:a, "b")
-Token(:a, "b", Info("a"))
-quit()
-Token(:a, "b", Info("a"))
-Token(:a, "b")
-Token(:a, "b", Info("a"))
-Token(:a, "b")
-Token(:a, "b")
-Token(:a, "b", Info("aa"))
-peekchar
-mark
-?mark
-eof(STDIN)
-a
-?readuntil
-Base.⊈
-2
-Base.⊈
-2
-3
-Base.<<
-<<
-Base.in
-Base.IOStream.peekchar
-Base.IOpeekchar
-Base.IO.peekchar
-peekchar
-peekchar(STDIN)
-a
-readwhile
-?eof
-"ae" . 'b'
-"ae" + 'b'
-"ae" + 'b'
-"ae" + "a"
-string
-string("aa", 'b')
-isnum
-isnumber
-readwhile(isnumber, stream)
-readwhile(isnumber, STDIN)
-12
-readwhile(isnumber, STDIN)
-12abs
-readwhile(isnumber, STDIN)
-skipchars
-?skipchars
-skipchars
-?skipchars
-skipchars(open("test.txt"), isspace)
-skipchars(open("test.txt"), isnumber)
-skipchars(open("test.txt"), isspace)
-readtoken
-readwhile(STDIN, isspace)
-aaa
-readwhile(STDIN, isspace)
-12
-in
-'a' in "abc"
-r"a"
-r"[a-zA-Z0-9]"
-"  a"
-"  a b"
-"  a b \"\""
-"  a b \""
-'\'
-'\\'
-'\\'
-'\\'
-'n'
-'"'
-readdquote(STDIN)
-aaa"
-2
-readdquote(STDIN)
-aaa
-bbb
-"
-readdquote(STDIN)
-aaa\""
-'a' in r"a"
-?match
-match(r"a", "a")
-match(r"a", 'a')
-isalpha
-?isalpha
-isalpha("fa")
-isalpha("fa2")
-isalpha("fa.")
-isalpha('.')
-isspecialchar
-isspecialchar('$')
-isheadchar('b')
-isheadchar('/')
-isheadchar('\')
-isheadchar('\\')
-isheadchar('\$')
-isheadchar('$')
-readtoken(STDIN)
-aaa
-readtoken(STDIN)
-aaaab
-readtoken(STDIN)
-aa.21
-readtoken(STDIN)
-.12
-readtoken(STDIN)
-.3004
-readtoken(STDIN)
-.
-unmark(STDIN)
-unmark(STDIN)
-unmark(STDIN)
-unmark(STDIN)
-readtoken(STDIN)
-1.23
-readtoken(STDIN)
-12.3
-readtoken(STDIN)
-12.3
-readtoken(STDIN)
-12.3
-readtoken(STDIN)
-12.3
 readtoken(STDIN)
 12.
 error
@@ -310,3 +153,348 @@ cons(1,2)
 Obj
 Cons
 quit()
+using LispParser
+using LispParser
+Cons
+cons
+*
+importall LispParser
+Obj
+cons(1,2)
+using LispParser
+cons
+cons(1,2)
+nil = Obj(:nil, "")
+nil = LispParser.Obj(:nil, "")
+nil
+cons(nil, nil)
+using LispParser
+nil = LispParser.Obj(:nil, "")
+cons(nil, nil)
+using LispParser
+nil = LispParser.Obj(:nil, "")
+cons(nil, nil)
+nil = Obj(:nil, "")
+cons(nil, nil)
+cons
+ methods(cons)
+parse
+2
+3
+quit()
+1
+cons
+cons(1,2)
+nil = Obj(:nil, false)
+nil
+cons(nil, nil)
+cons(nil, nil)
+cons(nil, nil)
+Enum
+Enum(a,2)
+Enum(3,2)
+LispLexer.tokenkinds
+["(", 1, 2, 3 ")"]
+["(", 1, 2, 3, ")"]
+["(", "(", 1, 2, 3, ")", ")"]
+[1,2,3]
+[1,2,3][1:]
+[1,2,3][1:end]
+[1,2,3][2:end]
+[]
+isnull([])
+isempty([])
+first
+first[1,23]
+first([1,23])
+?first
+last
+rest
+rest([1,2,3])
+?rest 
+2
+readtoken
+readtoken
+readtoken
+readtoken
+quit()
+1
+readtoken
+Pkg.add("PEGParser")
+Pkg.update()
+Pkg.add("PEGParser")
+readline()
+aao
+readline()
+1
+readtokens("test.txt")
+using LispLexer
+readtokens("test.txt")
+readtokens
+quit()
+readtokens
+readtokens("test.txt")
+readtokens("test.txt")
+readtokens("test.txt")
+chop("\n")
+chop("\n")
+chomp("\n")
+?chomp
+?chop
+quit()
+readtokens("test.txt")
+Token
+LispLexer.Token
+LispLexer.Token(1,2)
+LispLexer.Token(:a, "fo")
+currenttoken("test.txt")
+position(STDIN)
+a
+open("test.txt") do pos ; position(pos) end
+readtoken("test.txt")
+readtokens("test.txt")
+quit()
+readtokens("test.txt")
+eachtoken("test.txt")
+collect(eachtoken("test.txt"))
+collect(eachtoken("test.txt"))
+collect(eachtoken("test.txt"))
+collect(eachtoken("test.txt"))
+collect(eachtoken("test.txt"))
+collect(eachtoken("test.txt"))
+(c::Char)->(c)
+(c::Char)->(c)('a')
+((c::Char)->(c))('a')
+quit()
+collect(eachtoken("test.txt"))
+quit()
+collect(eachtoken("test.txt"))
+collect(eachtoken("test.txt"))
+quit()
+collect(eachtoken("test.txt"))
+quit()
+collect(eachtoken("test.txt"))
+open("test.txt") do s
+loopy(s)
+end
+print(1,2,3)
+open("test.txt") do s
+loopy(s)
+end
+tokenkinds
+LispLexer.tokenkinds
+quit 8
+quit()
+LispLexer.tokenkinds
+quit()
+collect(eachtoken("test.txt"))
+readtoken(STDIN)
+12.3
+loopy(open("test.txt"))
+loopy(open("test.txt"))
+loopy(open("test.txt"))
+loopy(open("test.txt"))
+loopy(open("test.txt"))
+loopy(open("test.txt"))
+loopy(open("test.txt"))
+collect(eachtoken("test.txt"))
+quit()
+collect(eachtoken("test.txt"))
+collect(eachtoken("test.txt"))
+data
+list
+vector
+Lexer
+LispLexer
+LispLexer.lexer
+LispLexer.lexer("test.txt")
+collect(LispLexer.lexer("test.txt"))
+lex = LispLexer.lexer("test.txt")
+lex.currenttoken
+lex.stream
+lex.currenttoken
+lex = LispLexer.lexer("test.txt")
+lex.currenttoken
+lex
+lex.stream
+lex.ondone
+lex = LispLexer.lexer("test.txt")
+lex.currenttoken
+readtoken(lex)
+LispLexer.readtoken(lex)
+LispLexer.readtoken(lex)
+lex.currenttoken
+read
+Base.read
+read(lexer("test.txt"))
+read(LispLexer.lexer)("test.txt")
+Base.read(LispLexer.lexer)("test.txt")
+Base.read(LispLexer.lexer)("test.txt")
+Base.read(LispLexer.lexer("test.txt"))
+Base.read(LispLexer.lexer("test.txt"))
+Base.read(LispLexer.lexer("test.txt"))
+read(LispLexer.lexer("test.txt"))
+seek
+1
+data(lexer("test.txt"))
+data(lexer("test.txt"))
+lexer
+quit()
+lexer
+data(lexer("test.txt"))
+data(lexer("test.txt"))
+quit()
+data(lexer("test.txt"))
+data(lexer("test.txt"))
+lexer("test.txt")
+collect(lexer("test.txt"))
+collect(lexer("test.txt"))
+seek(lexer("test.txt"))
+seek(lexer("test.txt"))
+seek(lexer("test.txt"))
+lex = lexer("test.txt")
+seek(lex)
+seek(lex)
+seek(lex)
+read(lex)
+read(lex)
+read(lex)
+read(lex)
+read(lex)
+read(lex)
+read(lex)
+read(lex)
+read(lex)
+match
+LispLexer.Token
+LispLexer.Token(:a, "b")
+LispLexer.Token(:a, "b") ==  LispLexer.Token(:a, "b")
+consume
+Lexer
+lexer
+quit()
+lexer
+Lexer
+Lexer
+Token
+lex = lexer("test.txt")
+match_read(lex, :open)
+match_read(lex, :open)
+lex = lexer("test.txt")
+seek(lex)
+seek(lex)
+read(lex)
+read(lex)
+read(lex)
+read(lex)
+read(lex)
+read(lex)
+lex = lexer("test.txt")
+lex
+lex.currenttoken
+seek(lex)
+seek(lex)
+seek(lex)
+lex
+lex
+quit()
+1
+lex = lexer("test.txt")
+seek(lex)
+quit()
+lex = lexer("test.txt")
+seek(lex)
+quit()
+lex = lexer("test.txt")
+seek(lex)
+seek(lex)
+read(lex)
+read(lex)
+seek(lex)
+seek(lex)
+seek(lex)
+seek(lex)
+?read
+methods(read)
+quit 8
+quit()
+lex = lexer("test.txt")
+currenttoken(lex)
+currenttoken(lex)
+readtoken(lex)
+readtoken(lex)
+currenttoken(lex)
+currenttoken(lex)
+currenttoken(lex)
+currenttoken(lex)
+lex = lexer("test.txt")
+match_readtoken(lex, :open)
+currenttoken(lex)
+currenttoken(lex)
+currenttoken(lex)
+readtoken(lex)
+currenttoken(lex)
+quit()
+lex = lexer("test.txt")
+match_readtoken(lex, :open)
+match_readtoken(lex, :start)
+currenttoken(lex)
+currenttoken(lex)
+quit 8
+quit()
+1
+lex =  lexer("test.txt")
+currenttoken(lex)
+current_
+current_task
+currenttoken(lex)
+currenttoken(lex)
+quit()
+lex =  lexer("test.txt")
+currenttoken(lex)
+match_readtoken(lex, "(")
+match_readtoken(lex, :open)
+currenttoken(lex)
+readtoken(lex)
+readtoken(lex)
+readtoken(lex)
+readtoken(lex)
+readtoken(lex)
+readtoken(lex)
+lex =  lexer("test.txt")
+collect(lex)
+quit()
+1
+lex = lexer("test.txt")
+quit()
+lex = lexer("test.txt")
+lex
+currenttoken(lex)
+readtoken(lex)
+data(lex)
+lex = lexer("test.txt")
+readtoken(lex)
+currenttoken(lex)
+data(lex)
+lex = lexer("test.txt")
+currenttoken(lex)
+readtoken(lex)
+data(lex)
+lex = lexer("test.txt")
+readtoken(lex)
+data(lex)
+lex = lexer("test.txt")
+lex = lexer("test.txt"); readtoken(lex); data(lex)
+lex = lexer("test.txt"); readtoken(lex); data(lex)
+lex = lexer("test.txt"); readtoken(lex); data(lex)
+lex = lexer("test.txt"); readtoken(lex); data(lex)
+lexer
+lexer(STDIN)
+stdin
+STDIN
+parent(STDIN)
+parent(typeof(STDIN))
+typeof(STDIN)
+parent
+?parent
+parent(Base.TTY)

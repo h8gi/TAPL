@@ -1,11 +1,10 @@
 # lexer.jl
 # scheme lexer
 module LispLexer
-
-export eachtoken, readtokens
+export Lexer, lexer, readtoken, currenttoken
 
 type Info
-    msg::String
+    position::Int
 end
 
 type Token
@@ -14,7 +13,7 @@ type Token
     info::Info
 end
 
-Token(sym::Symbol, val) = Token(sym, val, Info(""))
+Token(sym::Symbol, val) = Token(sym, val, Info(0))
 
 function peekchar(stream::IO)
     mark(stream)
@@ -86,8 +85,8 @@ function readsymbol(stream::IO, head::Char)
     end
 end
 
-function readnumber(stream::IO)
-    numstr = readwhile(stream, isnumber)
+function readnumber(stream::IO, sign::Char = '+')
+    numstr = string(sign, readwhile(stream, isnumber))
     if peekchar(stream) == '.'
         numstr = string(numstr, read(stream, Char), readwhile(stream, isnumber))
     end
@@ -112,11 +111,14 @@ end
 function readunquote(stream::IO)
     if  peekchar(stream) == '@'
         read(stream, Char)
-        Token(:special, "unquote-splicing")
+        Token(:abbrev_special, "unquote-splicing")
     else
-        Token(:special, "unquote")
+        Token(:abbrev_special, "unquote")
     end
 end
+
+tokenkinds = [:open, :close, :char, :string, :bool, :symbol, :abbrev_special,
+              :special, :vectoropen, :dot, :eof]
 
 function readtoken(stream::IO)    
     readwhile(stream, isspace)
@@ -124,6 +126,7 @@ function readtoken(stream::IO)
         return Token(:eof, "EOF")
     end
 
+    pos = position(stream)
     mark(stream)
     c = read(stream, Char)
     
@@ -138,48 +141,68 @@ function readtoken(stream::IO)
     elseif isnumber(c)
         reset(stream)
         readnumber(stream)
+    elseif c == '+' || c == '-'
+        readnumber(stream, c)
     elseif c == '#'        
         readaftersharp(stream)
     elseif c == '\''
-        Token(:special, "quote")
+        Token(:abbrev_special, "quote")
     elseif c == '`'
-        Token(:special, "quasiquote")
+        Token(:abbrev_special, "quasiquote")
     elseif c == ','
         readunquote(stream)
     elseif c == '.'
         Token(:dot, ".")
+    elseif c == ';'
+        Token(:comment, chomp(readline(stream)))
     else
         error("Illegal token char", c)
     end
-    
+
+    token.info = Info(pos)
     unmark(stream)
     return token
 end
-
-# EachLine at julia/base/io.jl 
-type EachToken
+# Lexer at julia/base/io.jl 
+type Lexer
     stream::IO
     ondone::Function
-    EachToken(stream) = EachToken(stream, ()->nothing)
-    EachToken(stream, ondone) = new(stream, ondone)
+    currenttoken::Token
+    Lexer(stream) = Lexer(stream, ()->nothing, Token(:start, "start"))
+    Lexer(stream, ondone) = new(stream, ondone, Token(:start, "start"))
 end
-eachtoken(stream::IO) = EachToken(stream)
-function eachtoken(filename::AbstractString)
+
+function lexer(stream::IO)
+    Lexer(stream)
+end
+
+function lexer(filename::AbstractString)
     s = open(filename)
-    EachToken(s, ()->close(s))
+    Lexer(s, ()->close(s))
 end
-Base.start(itr::EachToken) = nothing
-function Base.done(itr::EachToken, nada)
+
+Base.start(itr::Lexer) = nothing
+function Base.done(itr::Lexer, nada)
     if !eof(itr.stream)
         return false
     end
     itr.ondone()
     true
 end
-Base.next(itr::EachToken, nada) = (readtoken(itr.stream), nothing)
-Base.eltype(::Type{EachToken}) = Token
-Base.iteratorsize(::Type{EachToken}) = Base.SizeUnknown()
+function Base.next(itr::Lexer, nada)
+    readtoken(itr)
+    (itr.currenttoken, nothing)
+end
 
-readtokens(s=STDIN) = collect(eachtoken(s))
+Base.eltype(::Type{Lexer}) = Token
+Base.iteratorsize(::Type{Lexer}) = Base.SizeUnknown()
+
+function readtoken(itr::Lexer)
+    itr.currenttoken = readtoken(itr.stream)
+end
+
+function currenttoken(itr::Lexer)
+    itr.currenttoken
+end
 
 end
