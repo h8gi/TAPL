@@ -30,13 +30,10 @@ val power = fn m => fn n => n m
 
 val iszro = fn m => m (fn x => fls) tru
 
-local
-    val zz = fn () => pair c0 c0	(* to prevent expansion *)
-    val ss = fn p => pair (snd p) (plus c1 (snd p))
-in
+val zz = fn () => pair c0 c0	(* to prevent expansion *)
+val ss = fn p => pair (snd p) (plus c1 (snd p))
 val prd = fn m => fst (m ss (zz ()))
-end
-
 val minus = fn m => fn n => n prd m
+
 val realbool = fn b => b true false
 val churchbool = fn b => if b then tru else fls
