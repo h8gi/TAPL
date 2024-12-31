@@ -1,0 +1,30 @@
+* 6 Nameless Representation of Terms
+
+** 6.1 Terms and Contexts
+
+*** 6.1.1 Exercise
+#+BEGIN_SRC
+  c_0 = \s. \z. z
+  c_0 = \. \. 0
+  c_2 = \s. \z. s (s z)
+  c_2 = \. \. 1 (1 0)
+  plus = \m. \n. \s. \z. m s (n z s)
+  plus = \. \. \. \. 3 1 (2 0 1)
+  fix = \f. (\x. f (\y. (x x) y)) (\x. f (\y. (x x) y))
+  fix = \. (\. 1 (\. (1 1) 0)) (\. 1 (\. (1 1) 0))
+  foo = (\x. (\x. x)) (\x. x)
+  foo = (\. (\. 0)) (\. 0)
+#+END_SRC
+
+各項が含む自由変数の数を把握しておく必要がある。
+
+no free-variable: 0-terms
+1 free-variable: 1-terms
+
+*** 6.1.2 Definition [TERMS]: Let T be the smallest family of sets {T0, T1, T2, …} such that
+1. k ∈ Tn whenever 0 ≤ k < n;
+2. if t1 ∈ Tn and n > 0, then λ.t1 ∈ Tn−1;
+3. if t1 ∈ Tn and t2 ∈ Tn, then (t1 t2) ∈ Tn.
+
+1. 変数0 は T1 に含まれる(1から)
+2. \. 0 は T0 に含まれる(2から)
