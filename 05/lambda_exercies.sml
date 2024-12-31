@@ -36,4 +36,3 @@ val prd = fn m => fst (m ss (zz ()))
 val minus = fn m => fn n => n prd m
 
 val realbool = fn b => b true false
-val churchbool = fn b => if b then tru else fls

@@ -1,3 +1,5 @@
 ** 5.2 Programming in the Lambda-Calculus
 
 predecessor について: http://gregfjohnson.com/pred/
+
+** Formalities
