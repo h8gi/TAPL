@@ -6,7 +6,7 @@ Group is
   untyped.sig
   untyped.sml
 
-  syntax.sml
-  eval.sml
+  (* syntax.sml *)
+  (* eval.sml *)
 
   main.sml

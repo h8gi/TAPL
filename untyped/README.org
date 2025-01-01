@@ -1,0 +1,7 @@
+* untyped
+
+** Usage
+#+BEGIN_SRC shell
+  $ sml
+  - CM.make "sources.cm"
+#+END_SRC
