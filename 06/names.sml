@@ -65,3 +65,22 @@ fun restoreNames (ctx: namingContext, t: term) =
           NamedAbs(newName, restoreNames(newContext, t1))
       end
       | App (t1, t2) => NamedApp(restoreNames(ctx, t1), restoreNames(ctx, t2))
+
+fun shift (d, c, t) =
+    case t of
+        (* skip bound variable *)
+        Var k => if k < c then
+                     Var k
+                 else
+                     Var (k + d)
+      (* increment cutoff to skip bound variable *)
+      | Abs t1 => Abs (shift(d, c+1, t1))
+      | App (t1, t2) => App(shift(d,c,t1), shift(d,c,t2))
+
+fun subst (j, s, t) =
+    case t of
+        Var k => if k = j then
+                     s
+                 else Var k
+      | Abs t1 => Abs(subst(j+1, shift(1, 0, s), t1))
+      | App (t1, t2) => App(subst(j, s, t1), subst(j, s, t2))
