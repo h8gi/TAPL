@@ -3,15 +3,6 @@
 ** Usage
 #+BEGIN_SRC shell
   $ sml
-  - CM.make "sources.cm"
+  - CM.make "sources.cm";
+  - Untyped.compile "good.untyped";
 #+END_SRC
-
-** ml-ulex
-
-*** specification file の書き方
-セミコロンで区切られた declaration のリスト。
-declarationは以下の2種類
-- directive
-- rule
-directiveはグローバルな設定や名前つき正規表現などに使う補助的機能。
-ruleは実際にmatchする正規表現を指定する。
