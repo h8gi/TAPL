@@ -1,9 +1,12 @@
-structure Untyped :
-	  sig val compile : string -> DataTypes.Term
-	  end =
+signature UNTYPED =
+sig
+    val readFile : string -> DataTypes.Term
+end
+
+structure Untyped : UNTYPED =
 struct
 exception UntypedError;
-fun compile (fileName) =
+fun readFile (fileName) =
     let val inStream = TextIO.openIn fileName;
 	val grab : int -> string =
 	 fn n => if TextIO.endOfStream inStream

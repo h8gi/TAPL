@@ -4,5 +4,5 @@
 #+BEGIN_SRC shell
   $ sml
   - CM.make "sources.cm";
-  - Untyped.compile "good.untyped";
+  - Untyped.readFile "good.untyped";
 #+END_SRC

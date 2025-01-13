@@ -5,7 +5,7 @@ is
 	untyped.lex
 	untyped.yacc:MLYacc
 	glue.sml
-	compiler.sml
+	main.sml
 	$/basis.cm
 	$/ml-yacc-lib.cm
 	$smlnj/compiler/compiler.cm
