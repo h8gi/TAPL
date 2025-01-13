@@ -1,12 +1,11 @@
-Group is
-
-  $/basis.cm        (* SML/NJの標準ライブラリ *)
-  $/smlnj-lib.cm    (* もし使うなら、オプション *)
-
-  untyped.sig
-  untyped.sml
-
-  (* syntax.sml *)
-  (* eval.sml *)
-
-  main.sml
+Library
+	structure Untyped
+is
+	datatypes.sml
+	untyped.lex
+	untyped.yacc:MLYacc
+	glue.sml
+	compiler.sml
+	$/basis.cm
+	$/ml-yacc-lib.cm
+	$smlnj/compiler/compiler.cm

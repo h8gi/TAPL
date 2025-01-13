@@ -1,0 +1,169 @@
+start symbol used on the rhs of 2 rules
+
+warning: start symbol appears on the rhs of <term : LAMBDA ID DOT term >
+warning: start symbol appears on the rhs of <aterm : LPAREN term RPAREN >
+
+state 0:
+
+	term : . LAMBDA ID DOT term 
+	term : . appterm 
+
+	LPAREN	shift 5
+	LAMBDA	shift 4
+	ID	shift 3
+
+	term	goto 12
+	aterm	goto 2
+	appterm	goto 1
+
+	.	error
+
+
+state 1:
+
+	term : appterm .  (reduce by rule 1)
+	appterm : appterm . aterm 
+
+	LPAREN	shift 5
+	RPAREN	reduce by rule 1
+	EOF	reduce by rule 1
+	ID	shift 3
+
+	aterm	goto 6
+
+	.	error
+
+
+state 2:
+
+	appterm : aterm .  (reduce by rule 2)
+
+	LPAREN	reduce by rule 2
+	RPAREN	reduce by rule 2
+	EOF	reduce by rule 2
+	ID	reduce by rule 2
+
+
+	.	error
+
+
+state 3:
+
+	aterm : ID .  (reduce by rule 5)
+
+	LPAREN	reduce by rule 5
+	RPAREN	reduce by rule 5
+	EOF	reduce by rule 5
+	ID	reduce by rule 5
+
+
+	.	error
+
+
+state 4:
+
+	term : LAMBDA . ID DOT term 
+
+	ID	shift 7
+
+
+	.	error
+
+
+state 5:
+
+	aterm : LPAREN . term RPAREN 
+
+	LPAREN	shift 5
+	LAMBDA	shift 4
+	ID	shift 3
+
+	term	goto 8
+	aterm	goto 2
+	appterm	goto 1
+
+	.	error
+
+
+state 6:
+
+	appterm : appterm aterm .  (reduce by rule 3)
+
+	LPAREN	reduce by rule 3
+	RPAREN	reduce by rule 3
+	EOF	reduce by rule 3
+	ID	reduce by rule 3
+
+
+	.	error
+
+
+state 7:
+
+	term : LAMBDA ID . DOT term 
+
+	DOT	shift 9
+
+
+	.	error
+
+
+state 8:
+
+	aterm : LPAREN term . RPAREN 
+
+	RPAREN	shift 10
+
+
+	.	error
+
+
+state 9:
+
+	term : LAMBDA ID DOT . term 
+
+	LPAREN	shift 5
+	LAMBDA	shift 4
+	ID	shift 3
+
+	term	goto 11
+	aterm	goto 2
+	appterm	goto 1
+
+	.	error
+
+
+state 10:
+
+	aterm : LPAREN term RPAREN .  (reduce by rule 4)
+
+	LPAREN	reduce by rule 4
+	RPAREN	reduce by rule 4
+	EOF	reduce by rule 4
+	ID	reduce by rule 4
+
+
+	.	error
+
+
+state 11:
+
+	term : LAMBDA ID DOT term .  (reduce by rule 0)
+
+	RPAREN	reduce by rule 0
+	EOF	reduce by rule 0
+
+
+	.	error
+
+
+state 12:
+
+
+	EOF	accept
+
+
+	.	error
+
+29 of 48 action table entries left after compaction
+10 goto table entries
