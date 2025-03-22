@@ -1,11 +1,15 @@
 signature UNTYPED =
 sig
     val readFile : string -> DataTypes.Term
-end
+end;
 
 structure Untyped : UNTYPED =
 struct
 exception UntypedError;
+datatype namelessTerm =
+	 Var of int
+	 | Abs of namelessTerm
+	 | App of namelessTerm * namelessTerm;
 fun readFile (fileName) =
     let val inStream = TextIO.openIn fileName;
 	val grab : int -> string =

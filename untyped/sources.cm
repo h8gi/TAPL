@@ -3,7 +3,7 @@ Library
 is
 	datatypes.sml
 	untyped.lex
-	untyped.yacc:MLYacc
+	untyped.yacc : MLYacc
 	glue.sml
 	main.sml
 	$/basis.cm

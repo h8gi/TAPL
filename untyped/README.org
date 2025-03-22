@@ -6,3 +6,13 @@
   - CM.make "sources.cm";
   - Untyped.readFile "good.untyped";
 #+END_SRC
+
+** memo
+TODO: 以下のようにすれば関数適用を左結合にできそう?
+
+#+BEGIN_SRC
+%term FUN_APPL
+%left FUN_APPL
+
+term: term term %prec FUN_APPL
+#+END_SRC
